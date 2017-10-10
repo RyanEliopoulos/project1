@@ -5,21 +5,26 @@
 main(int argc, char **argv)
 {
 	double input;
-	char buffer[100];
 
-	printf("%d\n", argc);
 
 	if (argc != 2) {
 		printf("ERR\n");
 		exit(7);
 	}	
 
-	if (argv[1] < 0 ) {
-		printf("NEG\n");
+	int ret = sscanf(argv[1], "%lf", &input);
+	printf("%d\n", ret);
+	
+	if (ret < 1 ) {
+		printf("INV\n");
 		exit(8);	
 	}	
 
-//	int ret = sscanf(argv[1], "%lf", &input);
+	if (input < 0){
+		printf("NEG\n");
+		exit(9);
+	}
+
 	
 //	if (ret != 1){
 //		printf("INV\n");
@@ -30,7 +35,7 @@ main(int argc, char **argv)
 
 	//	sscanf(buffer, "%lf", 
 	//	printf("here is the next test: %lf\n", sqrt(25));
-	printf("End of main");
+//	printf("End of main");
 	exit(0);
 
 
